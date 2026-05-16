@@ -59,6 +59,9 @@ Assets/StreamingAssets/HockeyAppUnityAndroid
 .idea/
 *.sln.DotSettings.user
 
+# VS Code
+.vscode/
+
 # Uncomment if you use addressables
 # /[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*
 # /[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/AddressableAssetSettings.asset
