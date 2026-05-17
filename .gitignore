@@ -65,3 +65,4 @@ Assets/StreamingAssets/HockeyAppUnityAndroid
 # Uncomment if you use addressables
 # /[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*
 # /[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/AddressableAssetSettings.asset
+**/[Aa]ssets/[Ii]mported/
