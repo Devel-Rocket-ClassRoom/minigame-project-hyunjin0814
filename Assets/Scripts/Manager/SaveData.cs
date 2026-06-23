@@ -40,6 +40,7 @@ public class SaveData
     // ── 플레이 통계 (슬롯 UI 표시용) ──────────────────────────────────────
     public float  playTime  = 0f;   // 누적 플레이 시간 (초)
     public string lastSaved = "";   // 마지막 저장 시각 문자열 (표시용)
+    public int respawnCount = 0;
 
     // ── 재화 (추후 상점 시스템에서 사용) ──────────────────────────────────
     public int coins = 0;

@@ -136,6 +136,7 @@ public static class SaveManager
             savedFacingLeft = gs.savedFacingLeft,
 
             playTime  = gs.playTime,
+            respawnCount = gs.respawnCount,
             lastSaved = DateTime.Now.ToString("yyyy-MM-dd HH:mm"),
             coins     = gs.coins,
         };
@@ -203,6 +204,7 @@ public static class SaveManager
         gs.savedFacingLeft = data.savedFacingLeft;
 
         gs.playTime = data.playTime;
+        gs.respawnCount = data.respawnCount;
         gs.coins    = data.coins;
 
         // 체크포인트가 저장된 경우에만 해당 좌표로 스폰 예약

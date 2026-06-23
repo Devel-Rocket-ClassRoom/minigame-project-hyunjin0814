@@ -46,6 +46,8 @@ public class LeaderboardManager : MonoBehaviour
     private void OnDestroy()
     {
         StopRealtimeListener();
+        if (instance == this)
+            instance = null;
     }
 
     public async UniTask<(bool success, string error)> SaveToLeaderboardAsync(LeaderboardEntry entry)
@@ -101,6 +103,17 @@ public class LeaderboardManager : MonoBehaviour
             Debug.LogError($"[Leaderboard] 로드 실패: {ex.Message}");
             return new List<LeaderboardEntry>();
         }
+    }
+
+    public async UniTask<LeaderboardEntry> LoadMyEntryAsync()
+    {
+        if (leaderboardRef == null) return null; 
+
+        string userId = AuthManager.Instance.UserId;
+        DataSnapshot snapshot = await leaderboardRef.Child(userId).GetValueAsync();
+        
+        if (!snapshot.Exists) return null;
+        return LeaderboardEntry.FromJson(snapshot.GetRawJsonValue());
     }
 
     public List<LeaderboardEntry> ParseEntries(DataSnapshot snapshot)

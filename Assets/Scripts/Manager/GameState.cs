@@ -66,6 +66,7 @@ public class GameState : MonoBehaviour
     public int currentSaveSlot = -1;
     /// <summary>누적 플레이 시간 (초). 슬롯 선택 후부터 증가.</summary>
     public float playTime = 0f;
+    public int respawnCount = 0;
     /// <summary>보유 재화. 추후 상점 시스템에서 사용.</summary>
     public int coins = 0;
 
@@ -163,6 +164,7 @@ public class GameState : MonoBehaviour
         savedFacingLeft     = false;
         currentSaveSlot     = -1;
         playTime            = 0f;
+        respawnCount        = 0;
         coins               = 0;
         InventoryManager.Instance?.Clear();
         Debug.Log("[GameState] 초기화");

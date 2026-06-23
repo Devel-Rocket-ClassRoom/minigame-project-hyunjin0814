@@ -31,6 +31,14 @@ public class ProfileManager : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        if (AuthManager.Instance != null)
+            AuthManager.Instance.LoginStateChanged -= OnLoginStateChanged;
+        if (instance == this)
+            instance = null;
+    }
+
     private async UniTaskVoid Start()
     {
         if (!await FirebaseInitializer.Instance.WaitForInitializationAsync())
@@ -42,11 +50,21 @@ public class ProfileManager : MonoBehaviour
         databaseRef = FirebaseInitializer.Instance.Database.RootReference;
         usersRef = databaseRef.Child(FirebaseInitializer.Instance.Config.usersPath);
 
-        await LoadProfileAsync();
+        await UniTask.WaitUntil(() => AuthManager.Instance != null && AuthManager.Instance.IsInitialized);
+        AuthManager.Instance.LoginStateChanged += OnLoginStateChanged;
 
-        // isInitialized = true;
+        if (AuthManager.Instance.IsLoggedIn)
+            await LoadProfileAsync();
 
         Debug.Log("[Profile] 프로파일 초기화 완료");
+    }
+
+    private void OnLoginStateChanged(bool isLoggedIn)
+    {
+        if (isLoggedIn)
+            LoadProfileAsync().Forget();
+        else
+            cachedProfile = null;
     }
 
     public async UniTask<(bool success, string error)> SaveProfileAsync(string nickname)

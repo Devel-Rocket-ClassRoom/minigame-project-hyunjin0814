@@ -36,14 +36,15 @@ public class AuthManager : MonoBehaviour
         }
     }
 
-    private void OnDestroy() 
+    private void OnDestroy()
     {
         if (auth != null)
         {
             auth.StateChanged -= OnAuthStateChanged;
         }
 
-        instance = null;
+        if (instance == this)
+            instance = null;
     }
 
     private async UniTaskVoid Start()

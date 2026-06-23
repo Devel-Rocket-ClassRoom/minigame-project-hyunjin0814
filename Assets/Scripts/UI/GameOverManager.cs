@@ -36,6 +36,7 @@ public class GameOverManager : MonoBehaviour
 
     private IEnumerator RespawnAfterDeath()
     {
+        GameState.Instance.respawnCount++;
         yield return new WaitForSeconds(deathAnimDuration);
 
         var gs = GameState.Instance;
