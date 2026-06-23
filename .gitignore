@@ -78,3 +78,7 @@ Assets/StreamingAssets/HockeyAppUnityAndroid
 # Firebase config (contains DB URL — keep local only)
 /[Aa]ssets/[Rr]esources/FirebaseConfig.asset
 /[Aa]ssets/[Rr]esources/FirebaseConfig.asset.meta
+
+# Firebase native plugins (large binaries — excluded from LFS)
+/[Aa]ssets/[Ff]irebase/[Pp]lugins/x86_64/FirebaseCppApp-*.bundle
+/[Aa]ssets/[Ff]irebase/[Pp]lugins/x86_64/FirebaseCppApp-*.so
