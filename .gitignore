@@ -81,4 +81,6 @@ Assets/StreamingAssets/HockeyAppUnityAndroid
 
 # Firebase native plugins (large binaries — excluded from LFS)
 /[Aa]ssets/[Ff]irebase/[Pp]lugins/x86_64/FirebaseCppApp-*.bundle
+/[Aa]ssets/[Ff]irebase/[Pp]lugins/x86_64/FirebaseCppApp-*.bundle.meta
 /[Aa]ssets/[Ff]irebase/[Pp]lugins/x86_64/FirebaseCppApp-*.so
+/[Aa]ssets/[Ff]irebase/[Pp]lugins/x86_64/FirebaseCppApp-*.so.meta
